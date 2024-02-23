@@ -1,5 +1,5 @@
 {% set name = "pygnssutils" %}
-{% set version = "1.0.18" %}
+{% set version = "1.0.19" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pygnssutils-{{ version }}.tar.gz
-  sha256: 161f3d8dae479d327abd1b768376dfa4daf12bd91c57bed98434193fab87fe4e
+  sha256: 14fe0727ff165a14b3d2ca46144e3dc8ab35c6e7e150f3d5dd4b3029156958a1
 build:
   entry_points:
     - gnssdump = pygnssutils.gnssdump:main
@@ -17,6 +17,7 @@ build:
     - ubxsetrate = pygnssutils.ubxsetrate:main
     - ubxsave = pygnssutils.ubxsave:main
     - ubxload = pygnssutils.ubxload:main
+    - ubxsimulator = pygnssutils.ubxsimulator:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
@@ -32,7 +33,7 @@ requirements:
     - paho-mqtt >=1.6.1
     - pyserial >=3.5
     - pyspartn >=0.2.0
-    - pyubx2 >=1.2.37
+    - pyubx2 >=1.2.39
 
 test:
   imports:
