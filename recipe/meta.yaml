@@ -1,5 +1,5 @@
 {% set name = "pygnssutils" %}
-{% set version = "1.0.22" %}
+{% set version = "1.0.23" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pygnssutils-{{ version }}.tar.gz
-  sha256: ba792a054a6eea68a43d2b3b3415503df7213eb91a218343744447c64d4816e0
+  sha256: 9135eb49727b221f7f861876d39f7587f504534fb8c50c929cefd08209eab1fc
 build:
   entry_points:
     - gnssdump = pygnssutils.gnssdump:main
