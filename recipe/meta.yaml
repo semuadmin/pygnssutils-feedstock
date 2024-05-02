@@ -1,5 +1,5 @@
 {% set name = "pygnssutils" %}
-{% set version = "1.0.25" %}
+{% set version = "1.0.26" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pygnssutils-{{ version }}.tar.gz
-  sha256: b4d33054757b7620bbcd725f5ae968b864eb3a1b04b4978a7e8f51a56d9debd9
+  sha256: bdbb673ee8c451956a19aec20ef5d88a8a60baedb1a36b7b1f42e6750608794b
 build:
   entry_points:
     - gnssdump = pygnssutils.gnssdump:main
@@ -33,7 +33,7 @@ requirements:
     - python >=3.8
     - paho-mqtt >=1.6.1
     - pyserial >=3.5
-    - pyspartn >=0.3.3
+    - pyspartn >=0.4.0
     - pyubx2 >=1.2.39
 
 test:
