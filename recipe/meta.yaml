@@ -18,9 +18,11 @@ build:
     - ubxsave = pygnssutils.ubxsave:main
     - ubxload = pygnssutils.ubxload:main
     - ubxsimulator = pygnssutils.ubxsimulator:main
+    - ubxcompare = pygnssutils.ubxcompare:main
+
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
