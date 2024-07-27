@@ -1,5 +1,5 @@
 {% set name = "pygnssutils" %}
-{% set version = "1.0.29" %}
+{% set version = "1.0.30" %}
 
 package:
   name: {{ name|lower }}
@@ -7,22 +7,22 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pygnssutils-{{ version }}.tar.gz
-  sha256: b95923e2819d73cae80c40d324072e41ff38ef94b4c4591493dee261c43cbcd2
+  sha256: 21704e173ab9386a2633867f59b85e20363cb0b28cc984f390e3297040619aea
 build:
   entry_points:
-    - gnssdump = pygnssutils.gnssdump:main
-    - gnssserver = pygnssutils.gnssserver:main
-    - gnssntripclient = pygnssutils.gnssntripclient:main
-    - gnssmqttclient = pygnssutils.gnssmqttclient:main
+    - gnssdump = pygnssutils.gnssdump_cli:main
+    - gnssserver = pygnssutils.gnssserver_cli:main
+    - gnssntripclient = pygnssutils.gnssntripclient_cli:main
+    - gnssmqttclient = pygnssutils.gnssmqttclient_cli:main
     - ubxsetrate = pygnssutils.ubxsetrate:main
     - ubxsave = pygnssutils.ubxsave:main
     - ubxload = pygnssutils.ubxload:main
-    - ubxsimulator = pygnssutils.ubxsimulator:main
+    - ubxsimulator = pygnssutils.ubxsimulator_cli:main
     - ubxcompare = pygnssutils.ubxcompare:main
 
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
