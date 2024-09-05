@@ -1,5 +1,5 @@
 {% set name = "pygnssutils" %}
-{% set version = "1.1.0" %}
+{% set version = "1.1.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pygnssutils-{{ version }}.tar.gz
-  sha256: 85189c91dffb1deb49dab82deefc92c71f68ee426cf04285db7dfc763ec7f5b7
+  sha256: bbb9f2ca1b04790469621460fac93f988185095ca8ba6bfdfec1c359e37935a1
 build:
   entry_points:
-    - gnssdump = pygnssutils.gnssdump_cli:main
+    - gnssstreamer = pygnssutils.gnssstreamer_cli:main
+    - gnssdump = pygnssutils.gnssstreamer_cli:main
     - gnssserver = pygnssutils.gnssserver_cli:main
     - gnssntripclient = pygnssutils.gnssntripclient_cli:main
     - gnssmqttclient = pygnssutils.gnssmqttclient_cli:main
@@ -36,7 +37,7 @@ requirements:
     - paho-mqtt >=1.6.1
     - pyserial >=3.5
     - pyspartn >=1.0.2
-    - pyubx2 >=1.2.43
+    - pyubx2 >=1.2.45
 
 test:
   imports:
@@ -44,12 +45,14 @@ test:
   commands:
     - pip check
     - gnssdump --help
+    - gnssstreamer --help
     - gnssserver --help
     - gnssntripclient --help
     - gnssmqttclient --help
     - ubxsetrate --help
     - ubxsave --help
     - ubxload --help
+    - ubxcompare --help
   requires:
     - pip
 
