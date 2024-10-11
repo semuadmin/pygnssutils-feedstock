@@ -23,7 +23,7 @@ build:
 
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -32,12 +32,12 @@ requirements:
     - wheel
     - pip
   run:
-    - certifi >=2024.0.0
     - python >=3.9
+    - certifi >=2024.0.0
     - paho-mqtt >=1.6.1
     - pyserial >=3.5
-    - pyspartn >=1.0.3
-    - pyubx2 >=1.2.46
+    - pyspartn >=1.0.4
+    - pyubx2 >=1.2.47
 
 test:
   imports:
