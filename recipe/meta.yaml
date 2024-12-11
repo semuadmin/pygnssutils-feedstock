@@ -1,5 +1,5 @@
 {% set name = "pygnssutils" %}
-{% set version = "1.1.8" %}
+{% set version = "1.1.9" %}
 
 package:
   name: {{ name|lower }}
@@ -7,19 +7,13 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pygnssutils-{{ version }}.tar.gz
-  sha256: 8b4d51a3397cd906c9db70a11cebf8d5f66edf06a5c4c6a8d1526553d12cbacb
+  sha256: 48f3d8b5d2444b5076dfe57881e5d0cc008a2413ec4e38ac6623b305e5fba937
 build:
   entry_points:
     - gnssstreamer = pygnssutils.gnssstreamer_cli:main
-    - gnssdump = pygnssutils.gnssstreamer_cli:main
     - gnssserver = pygnssutils.gnssserver_cli:main
     - gnssntripclient = pygnssutils.gnssntripclient_cli:main
     - gnssmqttclient = pygnssutils.gnssmqttclient_cli:main
-    - ubxsetrate = pygnssutils.ubxsetrate:main
-    - ubxsave = pygnssutils.ubxsave:main
-    - ubxload = pygnssutils.ubxload:main
-    - ubxsimulator = pygnssutils.ubxsimulator_cli:main
-    - ubxcompare = pygnssutils.ubxcompare:main
 
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -27,33 +21,30 @@ build:
 
 requirements:
   host:
-    - python >=3.9
+    - python {{ python_min }}
     - setuptools >=66.0.0
     - wheel
     - pip
   run:
-    - python >=3.9
+    - python >={{ python_min }}
     - certifi >=2024.0.0
     - paho-mqtt >=1.6.1
     - pyserial >=3.5
     - pyspartn >=1.0.5
     - pyubx2 >=1.2.48
+    - pyubxutils >=1.0.2
 
 test:
   imports:
     - pygnssutils
   commands:
     - pip check
-    - gnssdump --help
     - gnssstreamer --help
     - gnssserver --help
     - gnssntripclient --help
     - gnssmqttclient --help
-    - ubxsetrate --help
-    - ubxsave --help
-    - ubxload --help
-    - ubxcompare --help
   requires:
+    - python {{ python_min }}
     - pip
 
 about:
