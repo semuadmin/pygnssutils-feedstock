@@ -32,6 +32,7 @@ requirements:
     - pyserial >=3.5
     - pyspartn >=1.0.5
     - pyubx2 >=1.2.48
+    - pyubxutils>=1.0.2
 
 test:
   imports:
