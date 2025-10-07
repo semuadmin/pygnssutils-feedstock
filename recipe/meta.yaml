@@ -1,5 +1,5 @@
 {% set name = "pygnssutils" %}
-{% set version = "1.1.17" %}
+{% set version = "1.1.18" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pygnssutils-{{ version }}.tar.gz
-  sha256: b65b94934c35d8c9ad344f9b064647cc73cbbd3c0a0306e1727d732a1c714431
+  sha256: 2709290918e8684aef8565271ae4a125eae8b2fffb593c890aa9849b2a7d1210
 build:
   entry_points:
     - gnssstreamer = pygnssutils.gnssstreamer_cli:main
@@ -33,6 +33,7 @@ requirements:
     - pyspartn >=1.0.7
     - pyubx2 >=1.2.58
     - pysbf2 >=1.0.0
+    - pyqgc >=0.1.1
     - pyubxutils >=1.0.3
 
 test:
