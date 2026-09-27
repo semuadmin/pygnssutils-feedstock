@@ -1,5 +1,5 @@
 {% set name = "pygnssutils" %}
-{% set version = "1.2.7" %}
+{% set version = "1.2.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pygnssutils-{{ version }}.tar.gz
-  sha256: d5b4c7effd01d69cce3404e61b1db9b8d84753c2ced9a522727f8e543de57fd8
+  sha256: 48539d96169eadab60ad2752b7912cde3996d480ffb298ba556652c3500d18d9
 build:
   entry_points:
     - gnssstreamer = pygnssutils.gnssstreamer_cli:main
@@ -27,15 +27,16 @@ requirements:
     - pip
   run:
     - python >={{ python_min }}
-    - certifi >=2025.0.0
+    - certifi >=2026.0.0
+    - pynmeagps >=1.1.7
+    - pyqgc >=1.0.0
+    - pyrtcm >=1.2.0
+    - pysbf2 >=1.0.4
     - pyserial >=3.5
     - pyspartn >=1.1.0
-    - pyubx2 >=1.3.6
-    - pysbf2 >=1.0.4
-    - pyunigps >=1.0.0
-    - pyqgc >=1.0.0
-    - pynmeagps >=1.1.7
+    - pyubx2 >=1.3.7
     - pyubxutils >=1.0.6
+    - pyunigps >=1.0.0
 
 test:
   imports:
@@ -45,6 +46,7 @@ test:
     - gnssstreamer --help
     - gnssserver --help
     - gnssntripclient --help
+    - pyrinexconv --help
   requires:
     - python {{ python_min }}
     - pip
