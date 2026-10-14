@@ -1,5 +1,5 @@
 {% set name = "pygnssutils" %}
-{% set version = "1.2.8" %}
+{% set version = "1.2.9" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pygnssutils-{{ version }}.tar.gz
-  sha256: 48539d96169eadab60ad2752b7912cde3996d480ffb298ba556652c3500d18d9
+  sha256: 5efe7f4ed63caeb4fb845481a2485da7a31a8abeda50fe26fecf0d963ee10288
 build:
   entry_points:
     - gnssstreamer = pygnssutils.gnssstreamer_cli:main
@@ -24,7 +24,7 @@ requirements:
     - python {{ python_min }}
     - setuptools >=75.0.0
     - wheel
-    - pip
+    - pip >=25.1
   run:
     - python >={{ python_min }}
     - certifi >=2026.0.0
